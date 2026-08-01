@@ -1,0 +1,4 @@
+interface:
+  display_name: "Autor de Questões Autorais"
+  short_description: "Crie questões inéditas e auditáveis"
+  default_prompt: "Use $authorial-question-writing para criar uma questão autoral inédita, contextualizada e pronta para revisão."
