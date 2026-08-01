@@ -46,6 +46,14 @@ Fazer o suporte responder: “que evidência o estudante precisa localizar, rela
 
 ## Escrever comando e alternativas
 
+### Criar imagens pedagógicas quando necessário
+
+- Usar imagem somente quando uma relação visual, espacial, cronológica ou quantitativa for relevante para a solução. Se o texto, uma tabela ou uma descrição acessível resolverem a mesma tarefa, manter media: [].
+- Quando a imagem for necessária e não houver ativo licenciado, usar a ferramenta integrada de geração de imagens (imagegen) para criar um recurso original. Escolher a categoria adequada, como scientific-educational, historical-scene, infographic-diagram ou productivity-visual, e descrever no prompt a finalidade pedagógica, a composição, a legibilidade e o que deve ser evitado.
+- Não copiar pinturas, fotografias, mapas, infográficos, logotipos ou personagens protegidos. Não pedir texto dentro da imagem quando a tipografia puder ser renderizada na interface; quando rótulos forem indispensáveis, conferi-los manualmente.
+- Para uma questão do ENtrack, salvar o arquivo final em /question-media/, inspecioná-lo antes de usar e preencher media com src, alt, caption, origin, creator, license, sourceUrl, o SHA-256 real do arquivo e essentialEvidenceIds. Para uma imagem gerada, usar origin: "entrack-generated", license: "ENtrack original" e sourceUrl: null.
+- O alt deve transportar a informação necessária para resolver o item, e a explicação deve citar apenas evidências que o recurso realmente apresenta. Se a geração ou a inspeção falhar, substituir a imagem por texto, tabela ou diagrama nativo; nunca deixar um placeholder ou uma URL remota.
+
 ### Formular o comando
 
 Escrever uma frase direta, autônoma e observável que obrigue a usar o suporte. Preferir verbos como analisar, relacionar, inferir, explicar, avaliar, comparar ou calcular. Delimitar a relação que deve ser construída e o que a resposta precisa concluir.

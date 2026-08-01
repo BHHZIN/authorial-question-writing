@@ -41,6 +41,20 @@ agents/openai.yaml               # metadados para a interface do Codex
 references/quality-rubric.md     # rubrica de auditoria e unicidade
 ```
 
+## Mídia visual
+
+A skill pode usar a ferramenta integrada de geração de imagens para criar mapas,
+linhas do tempo, diagramas, infográficos ou ilustrações originais quando a
+imagem realmente ajuda o estudante a resolver o item. Cada ativo deve ser
+salvo localmente, ter texto alternativo equivalente, origem/licença registradas
+e SHA-256 conferido. Imagem decorativa é descartada; quando a mídia não é
+necessária, o campo media permanece vazio.
+
+Exemplos:
+
+- [questão de leitura em inglês](examples/english-reading-question.json)
+- [questão de História — Brasil Império](examples/brazil-empire-question.json)
+
 ## Limites
 
 Esta skill cria rascunhos autorais e orienta sua auditoria. Ela não declara aprovação pedagógica, validade psicométrica, autorização de direitos autorais ou publicação em produção. Conteúdo que será usado por estudantes deve passar por revisão humana e pelos validadores do projeto.

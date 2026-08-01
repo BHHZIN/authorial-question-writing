@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "entrack-authorial-question/1.2.0",
+  "id": "authorial:brasil-imperio:ferrovia-e-escravidao",
+  "subjectId": "historia",
+  "topicSlug": "brasil-imperio",
+  "topicTitle": "Brasil Imp‚rio",
+  "area": "humanities",
+  "difficulty": "medium",
+  "alignment": "enem-contextual-candidate",
+  "prompt": "Em um dossiˆ did tico sobre uma zona cafeeira do Segundo Reinado, dois registros ficcionais da d‚cada de 1870 sÆo colocados lado a lado. No primeiro, a ata de uma companhia de transporte descreve a extensÆo de uma linha f‚rrea at‚ um porto, apresentada como meio de reduzir o tempo de envio das sacas de caf‚; os acionistas pedem garantia de juros ao governo imperial. No segundo, uma peti‡Æo de propriet rios solicita que a autoridade provincial mantenha a vigilƒncia sobre trabalhadores escravizados durante a colheita e afirma que a produ‡Æo depende dessa mÆo de obra. Os documentos foram escritos para este item e nÆo reproduzem fontes hist¢ricas existentes.\n\nFonte: ENtrack, Dossiˆ de uma zona cafeeira no Segundo Reinado (conte£do autoral; situa‡äes simuladas).\n\nA leitura conjunta dos registros permite inferir que",
+  "options": [
+    "a expansÆo ferrovi ria tinha como objetivo principal integrar mercados internos e dispensava a produ‡Æo exportadora.",
+    "a moderniza‡Æo econ“mica eliminava os mecanismos de coer‡Æo ao substituir o trabalho escravizado por trabalho livre.",
+    "o investimento em transportes e a defesa do trabalho escravizado expressavam uma moderniza‡Æo econ“mica articulada … preserva‡Æo da hierarquia social.",
+    "a garantia de juros dada ao transporte transferia ao governo o controle direto das fazendas e dos trabalhadores.",
+    "a defesa do trabalho escravizado mostrava que o Imp‚rio recusava qualquer mudan‡a t‚cnica e mantinha a economia isolada."
+  ],
+  "correctIndex": 2,
+  "explanation": "[E1] relaciona a ferrovia ao escoamento do caf‚ para o porto e … mobiliza‡Æo de capital com garantia imperial, evidenciando uma infraestrutura conectada ao mercado exportador. [E2] mostra que, no mesmo quadro, propriet rios defendem a vigilƒncia sobre trabalhadores escravizados e a dependˆncia da produ‡Æo em rela‡Æo a essa mÆo de obra. A leitura combinada sustenta a coexistˆncia entre moderniza‡Æo material e preserva‡Æo da hierarquia escravista, sem afirmar que a ferrovia tenha causado ou encerrado a escravidÆo.",
+  "optionRationales": [
+    "O destino da linha f‚rrea e o envio das sacas de caf‚ indicam articula‡Æo com a exporta‡Æo; a alternativa ignora a evidˆncia que orienta a obra.",
+    "O segundo registro apresenta a defesa expl¡cita da coer‡Æo sobre trabalhadores escravizados, portanto a moderniza‡Æo descrita nÆo ‚ apresentada como substitui‡Æo imediata do trabalho escravizado.",
+    "Correta. Os registros associam uma infraestrutura voltada ao escoamento exportador … manuten‡Æo de rela‡äes escravistas na produ‡Æo, combina‡Æo compat¡vel com a ordem social do per¡odo.",
+    "A garantia de juros ‚ um mecanismo de apoio financeiro ao empreendimento; os documentos nÆo dizem que o governo passou a administrar fazendas ou trabalhadores.",
+    "A existˆncia da ferrovia e do investimento organizado para levar o caf‚ ao porto contradiz a ideia de isolamento t‚cnico e econ“mico."
+  ],
+  "evidenceIds": ["E1", "E2"],
+  "cognitiveOperations": [
+    "relacionar dois registros situados no mesmo processo hist¢rico",
+    "identificar a fun‡Æo econ“mica da infraestrutura descrita",
+    "inferir a coexistˆncia entre moderniza‡Æo material e hierarquia social"
+  ],
+  "minimumDependentRelations": 3,
+  "solutionPathSignature": "history:brasil-imperio:railway-to-port:coffee-export:imperial-guarantee:enslaved-labor:modernization-with-social-hierarchy",
+  "expectedMisconceptions": [
+    "confundir uma ferrovia voltada ao porto e ao caf‚ com integra‡Æo priorit ria do mercado interno",
+    "interpretar infraestrutura e mudan‡a t‚cnica como prova autom tica da substitui‡Æo do trabalho escravizado",
+    "ler a garantia de juros como controle administrativo direto do governo sobre propriedades e trabalhadores",
+    "tomar a defesa da escravidÆo como recusa de qualquer inova‡Æo t‚cnica ou conexÆo exportadora"
+  ],
+  "uniqueSolutionAssumptions": [
+    "os dois registros sÆo situa‡äes simuladas do mesmo recorte temporal e econ“mico",
+    "a garantia de juros descreve apoio financeiro ao transporte, nÆo gestÆo direta da produ‡Æo",
+    "a questÆo pede a rela‡Æo entre as evidˆncias, e nÆo uma afirma‡Æo causal sobre a origem ou o fim da escravidÆo"
+  ],
+  "factualSupport": [
+    {
+      "claim": "A zona cafeeira, a companhia de transporte, a peti‡Æo e os detalhes dos registros sÆo situa‡äes simuladas criadas para este item.",
+      "sourceKind": "synthetic",
+      "sourceLabel": "ENtrack, conte£do autoral original; documentos e dados simulados."
+    }
+  ],
+  "media": [],
+  "densityException": null,
+  "source": {
+    "kind": "entrack-authorial",
+    "label": "Dossiˆ autoral sobre infraestrutura e trabalho no Segundo Reinado",
+    "attribution": "ENtrack",
+    "isFictionalOrSimulated": true,
+    "rightsStatus": "entrack-original",
+    "assetIds": []
+  },
+  "evidenceBlocks": [
+    {
+      "id": "E1",
+      "role": "economic-process",
+      "label": "Ata da companhia de transporte",
+      "content": "Uma linha f‚rrea ‚ estendida at‚ um porto para reduzir o tempo de envio das sacas de caf‚, enquanto acionistas solicitam garantia de juros ao governo imperial.",
+      "accessibilityText": "A ferrovia conecta a produ‡Æo cafeeira ao porto e envolve investimento apoiado pelo governo."
+    },
+    {
+      "id": "E2",
+      "role": "social-relation",
+      "label": "Peti‡Æo de propriet rios",
+      "content": "Propriet rios pedem vigilƒncia sobre trabalhadores escravizados durante a colheita e afirmam que a produ‡Æo depende dessa mÆo de obra.",
+      "accessibilityText": "A peti‡Æo defende a manuten‡Æo do trabalho escravizado na produ‡Æo cafeeira."
+    }
+  ],
+  "independentSolution": {
+    "selectedOption": 2,
+    "defensibleOptionIndexes": [2],
+    "reasoning": "E1 aponta uma infraestrutura orientada ao escoamento exportador e E2 aponta a manuten‡Æo da coer‡Æo escravista. A £nica alternativa que relaciona as duas evidˆncias sem inventar uma consequˆncia nÆo apresentada ‚ a op‡Æo 2.",
+    "checkedBy": "agent-self-check"
+  },
+  "stimulusDependency": {
+    "necessaryEvidenceIds": ["E1", "E2"],
+    "solvableWithoutStimulus": false,
+    "removalEffect": "Sem E1, desaparecem a finalidade exportadora e o mecanismo de apoio ao transporte; sem E2, nÆo ‚ poss¡vel estabelecer a rela‡Æo com a permanˆncia da hierarquia escravista."
+  },
+  "editorialStatus": "awaiting-human-review",
+  "reviewAuthority": "agent",
+  "reviewed": false
+}
