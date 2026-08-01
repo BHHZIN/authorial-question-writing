@@ -1,0 +1,100 @@
+{
+  "schemaVersion": "entrack-authorial-question/1.2.0",
+  "id": "authorial:leitura-em-ingles:rooftop-listening-room",
+  "subjectId": "ingles",
+  "topicSlug": "leitura-em-ingles",
+  "topicTitle": "Leitura em inglês",
+  "area": "languages",
+  "difficulty": "medium",
+  "alignment": "enem-contextual-candidate",
+  "prompt": "The City Museum has a small rooftop listening room. A notice says: \"On Tuesdays in July, the room is open from 5 to 7 p.m. Visitors may borrow headphones at the desk for one 20-minute listening session. Headphones must stay in the room. The rooftop room is not a study area.\"\n\nA visitor writes, \"Can I come without booking and work on my homework there?\" The museum replies that visitors may drop in if a seat is available, but anyone who needs a study space should use the reading room downstairs. After several visitors waited with notebooks, the museum adds a sign: \"Drop in for one listening session. For quiet study, go to the reading room. Return headphones before leaving.\"\n\nSource: ENtrack, rooftop listening room notice (original authorial content; simulated situation).\n\nWhat problem does the added sign primarily solve?",
+  "options": [
+    "It announces that the rooftop room will close after July.",
+    "It separates the listening activity from independent study and clarifies the conditions for using the room.",
+    "It requires every visitor to book before entering the museum.",
+    "It allows visitors to take the headphones home after a session.",
+    "It changes the 20-minute sessions into unlimited study periods."
+  ],
+  "correctIndex": 1,
+  "explanation": "[E1] defines the rooftop room as a short listening activity and states that it is not a study area. [E2] shows the visitor's confusion and the museum's distinction between dropping in and using the downstairs reading room. [E3] makes those conditions explicit: one listening session, quiet study elsewhere, and headphones returned. The added sign therefore clarifies different uses and access conditions rather than changing the schedule or extending the session.",
+  "optionRationales": [
+    "The sign does not change the July schedule or announce a closing date; it responds to confusion about how the room should be used.",
+    "Correct. The notice, visitor question, and added sign together distinguish listening from independent study and clarify the seat, session, and headphone conditions.",
+    "The phrase 'drop in if a seat is available' indicates that advance booking is not required; the distractor confuses limited capacity with mandatory booking.",
+    "Both the notice and the added sign keep the headphones inside the room; the distractor reverses an explicit return condition.",
+    "The sign preserves one 20-minute listening session and sends study users downstairs; it does not turn the room into an unlimited study area."
+  ],
+  "evidenceIds": ["E1", "E2", "E3"],
+  "cognitiveOperations": [
+    "identify the purpose of a public notice",
+    "connect the visitor's question to the museum's clarification",
+    "infer how explicit wording resolves a use-condition ambiguity"
+  ],
+  "minimumDependentRelations": 3,
+  "solutionPathSignature": "english-reading:museum-rooftop-listening-room:scheduled-session:visitor-study-confusion:drop-in-seat-condition:added-sign:study-room-headphones-return:purpose-clarification",
+  "expectedMisconceptions": [
+    "interpreting the added sign as a change to the July schedule",
+    "confusing seat availability with a requirement to book in advance",
+    "reversing the on-site headphone return rule",
+    "confusing a short listening session with an unlimited study period"
+  ],
+  "uniqueSolutionAssumptions": [
+    "the three notices refer to the same rooftop room",
+    "the added sign responds to visitors bringing notebooks",
+    "dropping in when a seat is available is distinct from booking in advance"
+  ],
+  "factualSupport": [
+    {
+      "claim": "The museum, schedule, room rules, and visitor exchange are fictional for this item.",
+      "sourceKind": "synthetic",
+      "sourceLabel": "ENtrack, original authorial content; simulated situation."
+    }
+  ],
+  "media": [],
+  "densityException": null,
+  "source": {
+    "kind": "entrack-authorial",
+    "label": "Original English notice about a museum listening room",
+    "attribution": "ENtrack",
+    "isFictionalOrSimulated": true,
+    "rightsStatus": "entrack-original",
+    "assetIds": []
+  },
+  "evidenceBlocks": [
+    {
+      "id": "E1",
+      "role": "source-context",
+      "label": "Museum notice",
+      "content": "The rooftop room is open on Tuesdays in July from 5 to 7 p.m. Visitors may borrow headphones for one 20-minute listening session, and the room is not a study area.",
+      "accessibilityText": "The notice describes a short listening activity and excludes independent study."
+    },
+    {
+      "id": "E2",
+      "role": "comparison",
+      "label": "Visitor exchange",
+      "content": "A visitor asks whether they can arrive without booking and do homework there. The museum replies that visitors may drop in if a seat is available, while study users should go to the reading room downstairs.",
+      "accessibilityText": "The exchange distinguishes drop-in listening from study in another room."
+    },
+    {
+      "id": "E3",
+      "role": "constraint",
+      "label": "Added sign",
+      "content": "The new sign says to drop in for one listening session, use the reading room for quiet study, and return headphones before leaving.",
+      "accessibilityText": "The added sign makes the room's activity, study alternative, and headphone rule explicit."
+    }
+  ],
+  "independentSolution": {
+    "selectedOption": 1,
+    "defensibleOptionIndexes": [1],
+    "reasoning": "Reading E1, E2, and E3 together shows that the sign answers a confusion about purpose and conditions of use. No other option is supported by the schedule or the headphone rule.",
+    "checkedBy": "agent-self-check"
+  },
+  "stimulusDependency": {
+    "necessaryEvidenceIds": ["E1", "E2", "E3"],
+    "solvableWithoutStimulus": false,
+    "removalEffect": "Without the notice, the room rules disappear; without the exchange and added sign, the purpose of the clarification cannot be inferred."
+  },
+  "editorialStatus": "awaiting-human-review",
+  "reviewAuthority": "agent",
+  "reviewed": false
+}
