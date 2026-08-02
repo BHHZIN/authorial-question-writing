@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "authorial-question-writing-examples/1.0.0",
+  "examples": [
+    {
+      "file": "english-reading-question.json",
+      "area": "languages",
+      "mode": "enem-foreign-language",
+      "subject": "ingles",
+      "topic": "leitura-em-ingles",
+      "difficulty": "medium",
+      "generatedAt": "2026-08-01T21:00:00.000Z"
+    },
+    {
+      "file": "brazil-empire-question.json",
+      "area": "humanities",
+      "mode": "enem",
+      "subject": "historia",
+      "topic": "brasil-imperio",
+      "difficulty": "medium",
+      "generatedAt": "2026-08-01T21:01:00.000Z"
+    },
+    {
+      "file": "mathematics-units-rounding-question.json",
+      "area": "mathematics",
+      "mode": "enem",
+      "subject": "matematica",
+      "topic": "aritmetica-e-teoria-dos-numeros",
+      "difficulty": "hard",
+      "generatedAt": "2026-08-01T21:02:00.000Z"
+    },
+    {
+      "file": "nature-dimensional-analysis-question.json",
+      "area": "nature",
+      "mode": "enem",
+      "subject": "fisica",
+      "topic": "cinematica",
+      "difficulty": "easy",
+      "generatedAt": "2026-08-01T21:03:00.000Z"
+    }
+  ]
+}

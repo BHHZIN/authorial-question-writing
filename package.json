@@ -1,0 +1,14 @@
+{
+  "name": "authorial-question-writing-skill",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test",
+    "validate:examples": "node scripts/validate-examples.mjs",
+    "validate:entrack": "node scripts/validate-entrack-integration.mjs"
+  }
+}

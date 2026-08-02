@@ -1,63 +1,70 @@
 # Rubrica de qualidade para questões autorais
 
-Usar esta referência depois de escrever o item e antes de devolvê-lo a um banco, trilha ou revisor. Aplicar os critérios como gates: uma falha crítica não é compensada por bons aspectos formais.
+Aplicar esta rubrica depois de escrever e antes de devolver o item. Tratar cada dimensão como gate: uma falha crítica não é compensada por boa forma textual.
 
-## Rubrica mínima
+## Gates obrigatórios
 
 | Dimensão | Pergunta de aprovação | Falhas que bloqueiam |
 | --- | --- | --- |
-| Alinhamento | O comando mede o objetivo declarado e pede uma operação observável? | tópico amplo, comando opinativo, conhecimento de outro tópico ou resposta que não depende do suporte |
-| Evidência | Cada parte da solução pode ser apontada em uma evidência do suporte? | dado ausente, detalhe decorativo, marcador privado exposto ou imagem sem descrição equivalente |
-| Unicidade | Um revisor independente escolheria apenas uma alternativa? | duas respostas defensáveis, premissa implícita, cálculo não especificado ou opção parcialmente correta |
-| Distratores | Cada erro é plausível, distinto e explicável? | absurdo, erro repetido, alternativa irrelevante, pista formal ou distrator que também responde ao comando |
-| Resolução | O caminho foi refeito sem olhar o gabarito? | aritmética não conferida, unidade incompatível, causalidade invertida ou explicação que só afirma a letra |
-| Dificuldade | O número de relações dependentes corresponde ao nível solicitado? | chamar texto longo de difícil ou exigir operações incompatíveis com o nível |
-| Originalidade | Cenário, redação, dados, alternativas e solução são novos? | paráfrase, tradução, reprodução de item/trecho/imagem ou cópia de sequência numérica |
-| Fatos e direitos | Afirmações reais têm fonte e o uso do conteúdo está autorizado? | “está na internet” como licença, URL sem licença, dado atual sem verificação ou origem inventada |
-| Acessibilidade | O estudante consegue ler o suporte e compreender a mídia sem depender de cor ou visão? | alt text ausente, tabela ilegível, contraste/conteúdo essencial apenas na imagem |
-| Contrato | O objeto segue schema, IDs, ordem e estado de revisão pedidos? | campo obrigatório ausente, ID alterado, JSON inválido ou `reviewed` marcado sem revisão humana |
+| Alinhamento | O comando mede o objetivo e a habilidade declarados? | tópico amplo, conhecimento de outra habilidade ou resposta independente do suporte |
+| Evidência | Cada passo da solução aponta para evidência disponível? | dado ausente, contexto decorativo, premissa oculta ou marcador privado visível |
+| Unicidade | Um revisor independente escolheria somente o gabarito? | duas respostas defensáveis, opção parcialmente correta ou condição não especificada |
+| Distratores | Cada distrator representa erro plausível, distinto e diagnosticável? | absurdo, erro repetido, sobreposição, irrelevância ou pista formal |
+| Resolução | A solução independente confere operações e conclusões? | cálculo, conversão, sinal, unidade, arredondamento, causalidade ou cronologia incorretos |
+| Dificuldade | As relações dependentes correspondem ao nível editorial pedido? | usar extensão, raridade ou conta trabalhosa como substituto de complexidade cognitiva |
+| Originalidade | Cenário, redação, dados, alternativas e rota de solução são novos? | reprodução, tradução, paráfrase superficial ou sequência numérica copiada |
+| Fatos e direitos | Fatos têm procedência e todo material pode ser usado? | fato real rotulado como simulado, URL sem licença, origem inventada ou mídia protegida |
+| Acessibilidade | Texto, tabela e mídia preservam a evidência sem depender de cor, visão ou interação específica? | alt ausente, tabela ilegível, contraste inadequado ou evidência somente visual |
+| Equidade | O item evita conhecimento cultural e socioeconômico irrelevante à habilidade? | vantagem ou desvantagem introduzida por classe, região, raça, gênero, religião, deficiência ou acesso tecnológico |
+| Sensibilidade | O conteúdo é necessário, proporcional e não estereotipa pessoas ou grupos? | violência gratuita, sexualização, humilhação, patologização, estigma ou generalização de grupo |
+| Adequação etária | Linguagem e contexto são apropriados ao público e protegem menores? | conteúdo adulto desnecessário, instrução perigosa, exposição de dados ou situação emocional sem finalidade pedagógica |
+| Mídia factual | Escala, rótulo, unidade, legenda e representação foram reconstruídos de dados verificados? | imagem gerada tratada como documento, mapa impreciso, gráfico incompatível ou anacronismo usado como evidência |
+| Contrato | O objeto segue schema, IDs, ordem, enums e estado de revisão? | campo ausente, enum inválido, ID alterado, JSON inválido ou `reviewed` humano inventado |
 
-## Teste rápido de unicidade
+## Testes privados
 
-Responder, sem olhar a alternativa correta:
+Responder sem olhar o gabarito:
 
 1. Qual evidência torna a resposta correta?
-2. Qual erro específico torna cada distrator plausível?
-3. O que aconteceria se cada evidência essencial fosse removida?
-4. Que informação externa, se houver, ainda seria necessária?
-5. Um estudante competente poderia defender outra alternativa com base apenas no texto?
+2. Que erro específico torna cada distrator atraente?
+3. O que muda se cada evidência essencial for removida?
+4. Que informação externa ainda seria necessária?
+5. Outra alternativa pode ser defendida apenas com o suporte?
+6. O gabarito tem pista de posição, extensão, detalhe ou tom?
+7. Um estudante de outro grupo social ou região encontra barreira irrelevante à habilidade?
+8. Um professor da disciplina confirmaria fato, solução e nível editorial?
 
-Se a resposta à quinta pergunta for “sim”, alterar o suporte, o comando ou as alternativas antes de entregar.
+Reescrever se a resposta 4 ou 5 revelar lacuna material, se a resposta 6 ou 7 indicar viés, ou se a resposta 8 ainda não puder ser obtida antes da publicação.
 
-## Modelo de auditoria privada
-
-Usar IDs curtos e estáveis somente nos metadados quando o contrato aceitar esse recurso. Não exibir esses rótulos ao estudante.
+## Auditoria privada mínima
 
 ```json
 {
-  "evidenceMap": [
-    {"id": "E1", "role": "dado ou afirmação decisiva", "usedBy": ["correct", "A"]}
-  ],
+  "evidenceMap": [{"id": "E1", "role": "evidência decisiva", "usedBy": ["correct"]}],
   "answerCheck": {
     "selectedOption": 0,
     "defensibleOptionIndexes": [0],
-    "reasoning": "resolução independente e verificável",
+    "reasoning": "resolução independente",
     "checkedBy": "agent-self-check"
   },
   "stimulusCheck": {
     "necessaryEvidenceIds": ["E1"],
     "solvableWithoutStimulus": false,
-    "removalEffect": "sem E1, o resultado não pode ser determinado"
+    "removalEffect": "sem E1, a resposta deixa de ser determinável"
   }
 }
 ```
 
-Adaptar `checkedBy` e os nomes ao contrato local. Este bloco registra uma checagem do agente; não substitui a resolução de um revisor humano.
+Essa auditoria não substitui revisão por especialista nem pré-teste com estudantes.
 
-## Quando o item falhar
+## Quando falhar
 
-- **Contexto decorativo:** remover a história e reescrever com dados/ideias que alterem a decisão.
-- **Distrator absurdo:** modelar o erro que um estudante realmente cometeria e mantê-lo incompatível com o suporte.
-- **Duas respostas possíveis:** acrescentar a condição que falta ou reformular o comando para uma relação única.
-- **Fonte sem permissão:** substituir por autoria própria ou interromper o uso até comprovar a licença.
-- **Questão parecida com referência:** manter a habilidade geral, mas trocar situação, representação, valores, entidades, comando e solução; nunca preservar a sequência verbal.
+- **Contexto decorativo:** integrar evidência necessária ou remover a narrativa.
+- **Distrator absurdo:** modelar erro observado ou conceitualmente plausível.
+- **Duas respostas:** acrescentar condição ou reformular comando e opções.
+- **Fonte sem permissão:** substituir por autoria própria ou suspender o item.
+- **Fato real como simulação:** separar cenário fictício da base factual e registrar fonte adequada.
+- **Pista de forma:** equilibrar construção e extensão sem tornar opções vagas.
+- **Viés ou estereótipo:** trocar contexto, agentes ou informação irrelevante preservando a habilidade.
+- **Mídia duvidosa:** reconstruir a representação de dados verificados ou usar texto/tabela.
+- **Dificuldade não comprovada:** rotular apenas a rubrica editorial e encaminhar para pré-teste.

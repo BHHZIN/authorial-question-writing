@@ -1,140 +1,94 @@
 ---
 name: authorial-question-writing
-description: "Criar e revisar questões educacionais autorais inéditas, especialmente itens de múltipla escolha no estilo ENEM, com suporte contextualizado, comando verificável, gabarito único, distratores diagnósticos, justificativas, dificuldade e controle de fontes e licenças. Usar quando Codex precisar elaborar, adaptar sem copiar, auditar ou devolver questões em texto ou JSON para bancos, simulados, trilhas ou avaliações."
+description: "Criar e revisar questões educacionais autorais inéditas, especialmente itens de múltipla escolha no estilo ENEM, com suporte contextualizado, comando verificável, gabarito único, distratores diagnósticos, justificativas, dificuldade, acessibilidade e controle de fontes. Usar para elaborar, adaptar sem copiar, auditar ou estruturar questões em texto ou JSON para bancos, simulados, trilhas e avaliações; no ENtrack, obedecer sempre ao pacote e ao validador locais."
 ---
 
 # Autor de Questões Autorais
 
-Tratar cada questão como um artefato pedagógico completo: o estudante deve ler o suporte, selecionar evidências, executar a operação intelectual pedida e encontrar uma única resposta defensável. Produzir conteúdo original, auditável e pronto para revisão humana; não prometer aprovação, validade psicométrica ou autorização de publicação.
+Tratar cada questão como artefato pedagógico auditável. Produzir rascunho original pronto para revisão humana; nunca prometer aprovação, validade psicométrica, autorização de publicação ou adequação automática ao público.
 
-## Fixar o contrato antes de escrever
+## Fixar o contrato
 
-1. Ler o pedido, os anexos e o contrato local inteiro antes de redigir. Identificar:
-   - público, idioma, área, disciplina, tópico e objetivo de aprendizagem;
-   - exame ou padrão de referência, se houver;
-   - dificuldade, quantidade de alternativas, formato de saída e campos obrigatórios;
-   - necessidade de texto, tabela, gráfico, imagem ou outro recurso;
-   - restrições de fonte, licença, uso de dados e revisão.
-2. Priorizar o contrato fornecido pelo usuário, pelo pacote JSON ou pelo repositório. Não inventar nomes de campos, IDs, matriz, dificuldade ou regras de release quando houver uma especificação local.
-3. Quando uma decisão ausente mudar materialmente o item — por exemplo, público, objetivo, formato, nível ou permissão de uso — fazer uma pergunta curta. Caso a lacuna seja segura, assumir explicitamente um valor mínimo e registrá-lo como hipótese.
-4. Não reproduzir questão oficial, apostila, livro, site, imagem ou alternativa. Usar referências apenas para estudar arquitetura cognitiva e criar cenário, números, texto, personagens, dados e caminho de resolução novos.
+1. Ler integralmente pedido, anexos, schema, matriz, pacote e validador disponíveis.
+2. Identificar público, idioma, área, disciplina, objetivo, dificuldade, quantidade de alternativas, formato, fontes, mídia e campos obrigatórios.
+3. Obedecer ao contrato local. Não inventar IDs, campos, matriz, dificuldade ou estado de release.
+4. Perguntar somente quando uma lacuna mudar materialmente objetivo, nível, público, formato ou permissão de uso. Registrar hipóteses seguras e mínimas.
+5. Não reproduzir nem parafrasear superficialmente questão, texto, imagem, números ou alternativas de prova, livro ou site.
 
-Quando o trabalho estiver dentro do ENtrack, ler antes de gerar: `docs/product/Authorial-Question-Workflow.md`, o blueprint ou pacote de questões correspondente e os tipos/validadores próximos em `features/learning-trails/`. Em especial, obedecer `outputContract`, `fieldGuide`, `difficultyRubric` e `uniquenessRegistry` recebidos. A especificação local é a fonte de verdade; esta skill não a substitui.
+Para trabalho no ENtrack, ler [references/entrack-integration.md](references/entrack-integration.md) antes de gerar e executar o validador real indicado pelo pacote.
 
-## Construir a questão por evidências
+## Escolher o modo de idioma
 
-Seguir esta cadeia, sem pular do tópico diretamente para as alternativas:
+- **ENEM em língua estrangeira:** manter o suporte no idioma-alvo e escrever comando e alternativas em português brasileiro, salvo contrato contrário.
+- **Aprendizagem de idioma:** ajustar suporte, comando e alternativas ao nível e ao objetivo comunicativo declarados; não assumir formato ENEM.
+- **Linguagens em português:** usar gênero, voz e contexto suficientes para sustentar a operação de leitura pedida.
 
-`objetivo → suporte → evidências → comando → caminho de resolução → alternativas → auditoria`
+Não misturar os modos sem declarar a exceção.
 
-### Escolher a arquitetura do suporte
+## Construir por evidências
 
-- **Linguagens e idiomas:** escrever texto, fala, anúncio, poema, narrativa ou situação comunicativa autoral com voz, contexto, gênero e informação suficientes para interpretação. Basear vocabulário, sintaxe ou sentido no uso concreto, não em uma frase isolada.
-- **Ciências Humanas:** apresentar documento, processo, caso, conflito ou conjunto de fontes situado no tempo e no espaço, com agente, ponto de vista ou relação social identificável. Limitar a conclusão ao que as evidências sustentam.
-- **Matemática:** descrever uma situação-problema plausível, definir grandezas, unidades, dados e condições. Fazer o contexto carregar a modelagem; não alongar a narrativa sem acrescentar informação necessária.
-- **Ciências da Natureza:** apresentar fenômeno, experimento, aplicação ou decisão técnica com variáveis, condições, observações e limites claros. Exigir a relação científica que o objetivo pretende avaliar.
+Seguir a cadeia:
 
-Fazer o suporte responder: “que evidência o estudante precisa localizar, relacionar ou transformar?”. Se a questão puder ser resolvida só pelo tópico, por memória solta ou pela alternativa mais longa, reescrever o suporte ou o comando.
+`objetivo → suporte → evidências → comando → solução → alternativas → auditoria`
 
-### Preservar originalidade e integridade factual
+- **Linguagens e idiomas:** avaliar sentido, uso, gênero, estratégia discursiva ou relação cultural a partir de texto ou situação comunicativa.
+- **Ciências Humanas:** situar agente, tempo, espaço, fonte e limite documental; não ultrapassar as evidências.
+- **Matemática:** definir grandezas, unidades, condições, precisão e regra de arredondamento; conferir análise dimensional.
+- **Ciências da Natureza:** explicitar fenômeno, variáveis, condições, observações e limites; conferir unidades, causalidade, ordem de grandeza e algarismos significativos quando aplicável.
 
-1. Criar uma combinação nova de situação, voz, dados, valores, ordem das informações e caminho de resolução. Não fazer paráfrase superficial de um item existente.
-2. Preferir autoria própria: `Fonte: autoria própria; conteúdo original e dados simulados.` No ENtrack, usar o rótulo institucional definido pelo contrato local.
-3. Para fatos reais, separar o que é verificável do que é simulado. Verificar afirmações atuais ou específicas quando necessário; sem fonte confiável, substituir por dado sintético claramente marcado ou deixar o item pendente.
-4. Usar fonte externa somente com domínio público, CC0, licença compatível ou autorização escrita verificável. Registrar autor, título, instituição, data, URL, licença/autorização e data de acesso. Página pública não significa permissão de reprodução.
-5. Se houver mídia, criá-la ou usar somente ativo com origem e licença comprovadas. Fornecer texto alternativo que carregue a informação essencial; não usar imagem decorativa para simular complexidade.
+Fazer o suporte carregar todas as evidências necessárias. Se a questão continuar solucionável sem ele, reescrever o suporte ou o comando.
+
+## Preservar fatos, autoria e direitos
+
+1. Criar situação, voz, dados, valores, ordem das informações e caminho de resolução novos.
+2. Separar conteúdo simulado de afirmações reais. Não usar uma fonte sintética para encobrir uma afirmação histórica, científica ou atual verificável.
+3. Verificar fatos reais em fontes primárias ou institucionais adequadas e registrar procedência, data, URL, licença ou autorização e data de acesso.
+4. Tratar página pública apenas como acesso, nunca como licença de reprodução.
+5. Substituir material sem direitos comprovados por conteúdo autoral; deixar o item pendente quando a verificação factual for indispensável e inconclusiva.
+
+## Usar mídia somente como evidência
+
+- Preferir texto, tabela semântica ou diagrama nativo quando forem suficientes.
+- Gerar imagem somente quando forma, posição, sequência, distribuição ou comparação visual fizer parte do raciocínio.
+- Não usar imagem gerada como prova de fato histórico, geográfico ou científico. Reconstruir gráficos, mapas e diagramas a partir de dados verificados e conferir cada escala, rótulo, unidade, legenda e relação antes de usar.
+- Não imitar artista vivo, personagem, logotipo, mapa, fotografia ou infográfico protegido.
+- Salvar o ativo localmente, inspecioná-lo, calcular o hash real, registrar origem/licença e fornecer texto alternativo com evidência equivalente.
+- Se geração, inspeção ou verificação falhar, substituir a mídia; nunca entregar placeholder ou hotlink.
 
 ## Escrever comando e alternativas
 
-### Criar imagens pedagógicas quando necessário
+Formular comando direto e observável que obrigue a usar o suporte. Pedir para analisar, relacionar, inferir, explicar, avaliar, comparar ou calcular uma relação delimitada.
 
-- Usar imagem somente quando uma relação visual, espacial, cronológica ou quantitativa for relevante para a solução. Se o texto, uma tabela ou uma descrição acessível resolverem a mesma tarefa, manter media: [].
-- Quando a imagem for necessária e não houver ativo licenciado, usar a ferramenta integrada de geração de imagens (imagegen) para criar um recurso original. Escolher a categoria adequada, como scientific-educational, historical-scene, infographic-diagram ou productivity-visual, e descrever no prompt a finalidade pedagógica, a composição, a legibilidade e o que deve ser evitado.
-- Não copiar pinturas, fotografias, mapas, infográficos, logotipos ou personagens protegidos. Não pedir texto dentro da imagem quando a tipografia puder ser renderizada na interface; quando rótulos forem indispensáveis, conferi-los manualmente.
-- Para uma questão do ENtrack, salvar o arquivo final em /question-media/, inspecioná-lo antes de usar e preencher media com src, alt, caption, origin, creator, license, sourceUrl, o SHA-256 real do arquivo e essentialEvidenceIds. Para uma imagem gerada, usar origin: "entrack-generated", license: "ENtrack original" e sourceUrl: null.
-- O alt deve transportar a informação necessária para resolver o item, e a explicação deve citar apenas evidências que o recurso realmente apresenta. Se a geração ou a inspeção falhar, substituir a imagem por texto, tabela ou diagrama nativo; nunca deixar um placeholder ou uma URL remota.
+Para itens ENEM/ENtrack, produzir cinco alternativas, salvo contrato contrário:
 
-### Formular o comando
+- um único gabarito defensável;
+- quatro distratores baseados em erros diferentes e plausíveis;
+- paralelismo gramatical, unidade, precisão e extensão semelhantes;
+- nenhuma alternativa absurda, parcialmente correta ou semanticamente sobreposta;
+- nenhuma pista por posição, comprimento, tom, concordância, precisão ou pontuação.
 
-Escrever uma frase direta, autônoma e observável que obrigue a usar o suporte. Preferir verbos como analisar, relacionar, inferir, explicar, avaliar, comparar ou calcular. Delimitar a relação que deve ser construída e o que a resposta precisa concluir.
+Explicar o atrativo e a falha exata de cada distrator.
 
-Evitar:
+## Resolver e auditar
 
-- “qual é a alternativa correta?” sem objeto intelectual;
-- comando que apenas repete o suporte;
-- pergunta respondível sem ler os dados;
-- opinião aberta quando o suporte permite uma conclusão verificável;
-- pegadinha baseada em negação, ambiguidade gramatical ou detalhe irrelevante.
+1. Esconder o gabarito e resolver do zero somente com as evidências e conhecimentos permitidos.
+2. Conferir cálculo, sinal, conversão, unidade, arredondamento, consistência dimensional, causalidade e cronologia.
+3. Testar a remoção de cada evidência essencial.
+4. Comparar texto, contexto, resposta numérica e caminho cognitivo com o banco disponível.
+5. Classificar dificuldade pelo número e dependência das relações, nunca pelo tamanho do texto.
+6. Produzir explicação do caminho e justificativa individual de todas as alternativas.
+7. Aplicar integralmente [references/quality-rubric.md](references/quality-rubric.md).
 
-### Escrever as alternativas
+## Separar validação, revisão e pré-teste
 
-Para itens no estilo ENEM/ENtrack, escrever exatamente cinco alternativas: um gabarito e quatro distratores. Se um contrato local exigir outra quantidade, obedecer ao contrato e registrar a exceção.
+- Manter `reviewed: false` ou equivalente em todo conteúdo produzido por agente.
+- Tratar validação mecânica como verificação de contrato, não como aprovação pedagógica.
+- Exigir revisão identificada por professor ou especialista da disciplina antes de uso com estudantes.
+- Exigir pré-teste com estudantes e análise de desempenho quando a dificuldade real, discriminação, calibração ou validade do item importar. Não inferir dificuldade psicométrica da rubrica editorial.
+- Não publicar, promover ao catálogo, preencher aprovação humana ou alterar release sem autorização explícita.
 
-- Fazer todas as alternativas responderem ao mesmo comando, com paralelismo gramatical, unidade, escopo e extensão semelhantes.
-- Garantir um único gabarito defensável pelo suporte. Não depender de interpretação benevolente, informação ausente ou conhecimento não anunciado.
-- Construir cada distrator a partir de um erro plausível e diferente: omitir evidência, inverter causa e efeito, escolher uma relação verdadeira mas irrelevante, usar unidade/operação/denominador incorreto, parar em uma etapa intermediária, extrapolar a fonte ou confundir conceitos próximos.
-- Explicar por que cada distrator parece atraente e exatamente onde falha. Nunca usar alternativa absurda, parcialmente correta, semanticamente sobreposta ou refutada por detalhe que o estudante não poderia conhecer.
-- Remover pistas de forma: posição do gabarito, comprimento, precisão numérica, tom, concordância, vocabulário técnico ou padrão de pontuação.
+## Entregar
 
-## Resolver e auditar antes de entregar
+Adaptar a saída ao schema real e devolver JSON válido quando solicitado. Em lotes, preservar IDs, metadados e ordem. Não inventar resposta para pacote ausente.
 
-1. Esconder o gabarito e resolver a questão do zero, usando apenas o suporte, as regras fornecidas e o conhecimento permitido pelo objetivo.
-2. Anotar evidências decisivas, operações cognitivas, premissas, unidades e etapas intermediárias. Conferir cálculo, sinais, arredondamento, causalidade, cronologia e consistência dimensional quando aplicável.
-3. Testar remoção do suporte: se ele sair, a resposta deve deixar de ser determinável. Se não deixar, acrescentar evidência útil ou mudar o comando.
-4. Comparar o caminho de resolução e a assinatura de unicidade com o banco fornecido. Reescrever o item se o contexto, os números, as respostas ou o caminho forem duplicados ou quase duplicados.
-5. Classificar dificuldade pelo raciocínio, não pelo tamanho do texto:
-   - **fácil:** uma relação central, dados explícitos e até duas operações ou inferências diretas;
-   - **média:** seleção de evidências e combinação de duas ou três relações/etapas dependentes;
-   - **difícil:** integração de pelo menos três relações, representações ou restrições concorrentes.
-6. Produzir explicação do gabarito, rationale individual das cinco alternativas e quatro `expectedMisconceptions` na ordem dos distratores. A explicação deve ensinar o caminho, não apenas declarar a letra.
-7. Marcar `reviewed: false` ou o equivalente do contrato. Validação mecânica não é revisão pedagógica; não aprovar, publicar, promover ao catálogo ou alterar arquivos de release sem autorização explícita.
-
-## Entregar no formato correto
-
-Se o usuário não fornecer schema, entregar um objeto ou tabela com, no mínimo:
-
-```json
-{
-  "subject": "...",
-  "topic": "...",
-  "objective": "...",
-  "difficulty": "easy|medium|hard",
-  "prompt": "texto-base, fonte e comando",
-  "options": ["A", "B", "C", "D", "E"],
-  "correctIndex": 0,
-  "explanation": "caminho de resolução",
-  "optionRationales": ["...", "...", "...", "...", "..."],
-  "expectedMisconceptions": ["...", "...", "...", "..."],
-  "evidenceIds": ["E1"],
-  "factualSupport": [{"claim": "...", "sourceKind": "synthetic", "sourceLabel": "..."}],
-  "media": [],
-  "reviewed": false
-}
-```
-
-Adaptar os nomes e campos ao schema real. Quando o usuário pedir JSON, devolver JSON válido; não misturar comentários, markdown ou texto fora do envelope. Em lotes, preservar IDs e metadados fornecidos, devolver todos os itens na ordem solicitada e não substituir uma resposta ausente por conteúdo inventado.
-
-### Contrato específico do ENtrack
-
-Para pacotes autorais do ENtrack, manter `schemaVersion`, `packetId`, `questionId`, `matrixReference` e `difficulty` exatamente como recebidos. Preencher os campos obrigatórios do pacote, incluindo `prompt`, cinco `options`, `correctIndex`, `explanation`, cinco `optionRationales`, `evidenceIds`, `cognitiveOperations`, `minimumDependentRelations`, `solutionPathSignature`, `expectedMisconceptions`, `uniqueSolutionAssumptions`, `factualSupport`, `media`, `densityException`, `independentSolution` e `stimulusDependency`. Manter `reviewed: false`.
-
-Fazer `independentSolution.defensibleOptionIndexes` conter somente o índice do gabarito e `stimulusDependency.solvableWithoutStimulus` ser `false`, salvo regra explícita em contrário no pacote. Ocultar marcadores privados como `[E1]` do texto visível; usá-los apenas nos metadados e na explicação privada. Quando a mídia for necessária, incluir alt text, caption, origem, licença, URL quando aplicável, hash SHA-256 e evidências essenciais.
-
-Depois de salvar as respostas, executar o validador local indicado pelo pacote ou pelo repositório, normalmente `npm run questions:validate`, ler o relatório e encaminhar para revisão humana. Não declarar a questão “aprovada” apenas porque o comando terminou sem erro.
-
-## Gate final
-
-Bloquear a entrega como pronta se qualquer item abaixo falhar:
-
-- objetivo, comando e operação cognitiva estão alinhados;
-- o suporte contém todas as evidências necessárias e não é decorativo;
-- existe exatamente um gabarito e cada distrator representa um erro identificável;
-- a questão é solucionável sem informação oculta e não possui ambiguidade material;
-- dados, cálculos, unidades, fatos, fonte e licença foram conferidos;
-- texto, imagem, tabela e alt text são acessíveis e legíveis;
-- originalidade e não duplicação foram verificadas;
-- dificuldade e extensão são compatíveis com o contrato;
-- todos os campos obrigatórios estão preenchidos e o JSON é válido;
-- o estado de revisão permanece explícito e a aprovação humana ainda está separada.
-
-Para uma checagem mais detalhada de itens isolados ou lotes, consultar [references/quality-rubric.md](references/quality-rubric.md).
+Bloquear a entrega como pronta se falhar alinhamento, evidência, unicidade, resolução, originalidade, fatos, direitos, acessibilidade, equidade, adequação etária, contrato ou separação de revisão.
