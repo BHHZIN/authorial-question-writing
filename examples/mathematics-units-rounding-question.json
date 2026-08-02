@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "entrack-authorial-question/1.2.0",
+  "responses": [
+    {
+      "schemaVersion": "entrack-authorial-question/1.2.0",
+      "packetId": "authorial:aritmetica-e-teoria-dos-numeros:base@2026-08-01T21:02:00.000Z",
+      "questionId": "authorial:aritmetica-e-teoria-dos-numeros:base",
+      "reviewed": false,
+      "difficulty": "hard",
+      "matrixReference": {
+        "source": "Matrizes de Referência do Enem — Inep/MEC (2026)",
+        "sourceYear": 2026,
+        "sourcePublishedAt": "2026-07-17",
+        "sourceUrl": "https://download.inep.gov.br/enem/outros_documentos/enem_matriz_de_referencia_v1.pdf",
+        "sourceSha256": "4f540d5439df00f88e13363ecaff3d884b83d16c1ae6cedbe5c2c3aabbf288b6",
+        "competencyCode": "C1",
+        "competency": "Construir significados para os números naturais, inteiros, racionais e reais.",
+        "skillCode": "H3",
+        "skill": "Resolver situação-problema envolvendo conhecimentos numéricos.",
+        "area": "mathematics",
+        "topicSlug": "aritmetica-e-teoria-dos-numeros",
+        "alignmentRationale": "A candidata mobiliza Aritmética e teoria dos números para subtrair as reservas do inventário de cada produto; determinar o maior divisor comum dos dois totais restantes."
+      },
+      "prompt": "Uma escola capta água da chuva em um telhado de 48 m². Em uma semana, o pluviômetro registrou 18 mm. Considere que 1 mm de chuva sobre 1 m² corresponde a 1 L de água. O sistema conduz ao reservatório 75% do volume que atinge o telhado. Antes da distribuição, 120 L devem permanecer como reserva. O restante será dividido igualmente entre 35 equipes, usando apenas garrafas completamente cheias de 0,5 L. Nenhuma equipe pode receber mais água que a disponível, e o saldo não distribuído permanece no reservatório. O relatório registra, com uma casa decimal, o volume entregue a cada equipe.\n\nFonte: ENtrack, Sistema escolar de captação de chuva (conteúdo autoral; dados simulados).\n\nA distribuição que atende a todas as condições é",
+      "options": [
+        "31 garrafas, equivalentes a 15,5 L por equipe, sem saldo adicional.",
+        "30 garrafas, equivalentes a 15,0 L por equipe, com saldo adicional de 3 L.",
+        "24 garrafas, equivalentes a 12,0 L por equipe, com saldo adicional de 108 L.",
+        "35 garrafas, equivalentes a 17,5 L por equipe, com saldo adicional de 35 L.",
+        "18 garrafas, equivalentes a 9,0 L por equipe, com saldo adicional de 213 L."
+      ],
+      "correctIndex": 1,
+      "explanation": "[E1] fornece 48 m² e 18 mm, portanto o telhado recebe 48 × 18 = 864 L. [E2] aplica a eficiência: 864 × 0,75 = 648 L; após reservar 120 L, restam 528 L. [E3] divide o volume por 35: 528 ÷ 35 ≈ 15,0857 L por equipe. Como só cabem garrafas completas de 0,5 L sem exceder o total, cada equipe recebe 30 garrafas, ou 15,0 L. São distribuídos 525 L, deixando 3 L além da reserva. As conversões preservam volume em litros e o arredondamento é feito para baixo pela restrição física.",
+      "optionRationales": [
+        "Trinta e uma garrafas exigiriam 542,5 L para as 35 equipes, ultrapassando os 528 L disponíveis.",
+        "Correta. A captação útil é 648 L, o volume distribuível é 528 L e 30 garrafas por equipe consomem 525 L.",
+        "Esse resultado entrega menos água sem necessidade e trata parte do volume disponível como saldo antes de maximizar as garrafas completas.",
+        "Trinta e cinco garrafas por equipe exigiriam 612,5 L, valor maior que os 528 L disponíveis após a reserva.",
+        "Esse resultado usa incorretamente o registro de 18 mm como volume individual e não combina área, eficiência e divisão."
+      ],
+      "evidenceIds": ["E1", "E2", "E3"],
+      "cognitiveOperations": [
+        "converter precipitação e área em volume de água",
+        "aplicar a eficiência percentual de captação",
+        "subtrair a reserva operacional",
+        "dividir o volume entre as equipes",
+        "arredondar para baixo conforme a capacidade discreta das garrafas"
+      ],
+      "minimumDependentRelations": 5,
+      "solutionPathSignature": "math:rain-capture:area-times-depth>efficiency>reserve>equal-share>half-liter-floor",
+      "expectedMisconceptions": [
+        "arredondar para cima e exceder o volume disponível",
+        "interromper a distribuição antes de maximizar garrafas completas",
+        "ignorar a reserva ao calcular o volume por equipe",
+        "tratar a altura de chuva como volume sem multiplicar pela área"
+      ],
+      "uniqueSolutionAssumptions": [
+        "a equivalência de 1 mm sobre 1 m² para 1 L vale para todo o telhado",
+        "os 75% são aplicados antes da separação da reserva",
+        "todas as equipes recebem o mesmo número inteiro de garrafas de 0,5 L",
+        "o número de garrafas deve ser maximizado sem exceder 528 L"
+      ],
+      "factualSupport": [
+        {
+          "claim": "A escola, o telhado, a chuva, a eficiência e a distribuição foram criados para este item.",
+          "sourceKind": "entrack-simulated",
+          "sourceLabel": "ENtrack, conteúdo autoral original; situação e dados simulados."
+        }
+      ],
+      "media": [],
+      "densityException": null,
+      "independentSolution": {
+        "selectedOption": 1,
+        "defensibleOptionIndexes": [1],
+        "reasoning": "48 × 18 × 0,75 − 120 = 528 L. Dividindo por 35 e respeitando garrafas de 0,5 L, cabem 30 por equipe: 525 L distribuídos e 3 L restantes.",
+        "checkedBy": "agent-self-check"
+      },
+      "stimulusDependency": {
+        "necessaryEvidenceIds": ["E1", "E2", "E3"],
+        "solvableWithoutStimulus": false,
+        "removalEffect": "Sem área e precipitação, eficiência e reserva, ou quantidade de equipes e capacidade das garrafas, o volume distribuído não pode ser determinado."
+      }
+    }
+  ]
+}

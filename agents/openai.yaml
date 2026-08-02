@@ -1,4 +1,4 @@
 interface:
-  display_name: "Autor de Questıes Autorais"
-  short_description: "Crie questıes inÈditas e audit·veis"
-  default_prompt: "Use $authorial-question-writing para criar uma quest„o autoral inÈdita, contextualizada e pronta para revis„o."
+  display_name: "Autor de Quest√µes Autorais"
+  short_description: "Crie quest√µes in√©ditas e audit√°veis"
+  default_prompt: "Use $authorial-question-writing para criar uma quest√£o autoral in√©dita, contextualizada e pronta para revis√£o."

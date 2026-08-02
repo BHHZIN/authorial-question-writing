@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "entrack-authorial-question/1.2.0",
+  "responses": [
+    {
+      "schemaVersion": "entrack-authorial-question/1.2.0",
+      "packetId": "authorial:cinematica:base@2026-08-01T21:03:00.000Z",
+      "questionId": "authorial:cinematica:base",
+      "reviewed": false,
+      "difficulty": "easy",
+      "matrixReference": {
+        "source": "Matrizes de Referência do Enem — Inep/MEC (2026)",
+        "sourceYear": 2026,
+        "sourcePublishedAt": "2026-07-17",
+        "sourceUrl": "https://download.inep.gov.br/enem/outros_documentos/enem_matriz_de_referencia_v1.pdf",
+        "sourceSha256": "4f540d5439df00f88e13363ecaff3d884b83d16c1ae6cedbe5c2c3aabbf288b6",
+        "competencyCode": "C6",
+        "competency": "Apropriar-se de conhecimentos da física para, em situações-problema, interpretar, avaliar ou planejar intervenções científico-tecnológicas.",
+        "skillCode": "H20",
+        "skill": "Caracterizar causas ou efeitos dos movimentos de partículas, substâncias, objetos ou corpos celestes.",
+        "area": "nature",
+        "topicSlug": "cinematica",
+        "alignmentRationale": "A candidata mobiliza Cinemática para inferir a velocidade em cada intervalo a partir das leituras de posição e tempo; comparar as velocidades dos intervalos e calcular a velocidade média global."
+      },
+      "prompt": "Em um ensaio hipotético, um sensor registrou a posição de um carrinho que se moveu em linha reta e no sentido positivo. No instante 0 s, a posição era 0 m; em 4 s, era 12,0 m; e em 10 s, era 21,4 m. O carrinho não parou entre as leituras e manteve velocidade constante dentro de cada intervalo. O relatório deve comparar as velocidades dos dois intervalos e registrar a velocidade média desde 0 s até 10 s, arredondada para uma casa decimal. Para manter consistência dimensional, toda velocidade deve ser expressa pela razão entre deslocamento, em metros, e tempo, em segundos.\n\nFonte: ENtrack, Movimento de um carrinho de inspeção (conteúdo autoral; dados simulados).\n\nO registro correto para o relatório é",
+      "options": [
+        "a velocidade aumentou, e a média foi 2,1 m/s.",
+        "a velocidade diminuiu, e a média foi 2,3 m/s.",
+        "a velocidade permaneceu constante, e a média foi 2,1 m/s.",
+        "a velocidade diminuiu, e a média foi 2,1 m/s.",
+        "a velocidade aumentou, e a média foi 1,6 m/s."
+      ],
+      "correctIndex": 3,
+      "explanation": "[E1] no primeiro intervalo, a velocidade é 12,0 m ÷ 4 s = 3,0 m/s. [E2] no segundo, o deslocamento é 21,4 − 12,0 = 9,4 m em 6 s, resultando em aproximadamente 1,6 m/s, portanto a velocidade diminui. A velocidade média global é 21,4 m ÷ 10 s = 2,14 m/s, arredondada para 2,1 m/s. Em todos os cálculos, metro dividido por segundo produz a unidade dimensional m/s.",
+      "optionRationales": [
+        "A média global está correta, mas a comparação ignora que 3,0 m/s é maior que aproximadamente 1,6 m/s.",
+        "A tendência está correta, porém 21,4 dividido por 10 resulta em 2,14, que arredonda para 2,1 m/s.",
+        "As velocidades dos intervalos são diferentes: 3,0 m/s no primeiro e aproximadamente 1,6 m/s no segundo.",
+        "Correta. A velocidade cai de 3,0 m/s para aproximadamente 1,6 m/s, e a média global arredonda para 2,1 m/s.",
+        "O valor de 1,6 m/s corresponde apenas ao segundo intervalo e não à média de todo o deslocamento."
+      ],
+      "evidenceIds": ["E1", "E2"],
+      "cognitiveOperations": [
+        "calcular e comparar velocidades em dois intervalos",
+        "calcular e arredondar a velocidade média global com unidade consistente"
+      ],
+      "minimumDependentRelations": 2,
+      "solutionPathSignature": "physics:kinematics:interval-speeds>decrease>global-average-one-decimal",
+      "expectedMisconceptions": [
+        "confundir velocidade média correta com aumento entre intervalos",
+        "arredondar 2,14 m/s para 2,3 m/s",
+        "comparar apenas o deslocamento e concluir velocidade constante",
+        "usar a velocidade do segundo intervalo como média global"
+      ],
+      "uniqueSolutionAssumptions": [
+        "o movimento ocorre em linha reta no sentido positivo",
+        "as posições e os tempos pertencem ao mesmo referencial",
+        "o arredondamento pedido é para uma casa decimal"
+      ],
+      "factualSupport": [
+        {
+          "claim": "O carrinho, as leituras e as condições de movimento foram criados para este item.",
+          "sourceKind": "entrack-simulated",
+          "sourceLabel": "ENtrack, conteúdo autoral original; situação e dados simulados."
+        }
+      ],
+      "media": [],
+      "densityException": null,
+      "independentSolution": {
+        "selectedOption": 3,
+        "defensibleOptionIndexes": [3],
+        "reasoning": "As velocidades são 3,0 m/s e cerca de 1,6 m/s, logo diminuem. A média é 21,4 m ÷ 10 s = 2,14 m/s, registrada como 2,1 m/s.",
+        "checkedBy": "agent-self-check"
+      },
+      "stimulusDependency": {
+        "necessaryEvidenceIds": ["E1", "E2"],
+        "solvableWithoutStimulus": false,
+        "removalEffect": "Sem as três leituras de posição e tempo e a regra de arredondamento, não é possível comparar intervalos nem registrar a média solicitada."
+      }
+    }
+  ]
+}

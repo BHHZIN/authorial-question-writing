@@ -1,60 +1,59 @@
 # Authorial Question Writing
 
-Skill global do Codex para criar e revisar questões educacionais autorais, inéditas e auditáveis — especialmente itens de múltipla escolha no estilo ENEM.
+Skill do Codex para criar e revisar questões educacionais autorais, inéditas e auditáveis, com integração validada ao workflow do ENtrack.
 
-## O que a skill faz
+## Capacidades
 
-- parte do objetivo de aprendizagem e constrói o suporte por evidências;
-- cria comandos que exigem leitura, interpretação ou resolução;
-- produz um gabarito único e distratores baseados em erros plausíveis;
-- registra explicação, justificativas das alternativas e concepções equivocadas esperadas;
-- verifica originalidade, fatos, fontes, licenças, acessibilidade e dependência do suporte;
-- adapta a saída a contratos JSON locais, incluindo o fluxo autoral do ENtrack;
-- mantém a aprovação humana separada da validação mecânica.
+- constrói itens a partir de objetivo, suporte e evidências;
+- produz gabarito único e distratores diagnósticos;
+- separa modo ENEM em língua estrangeira de aprendizagem de idioma;
+- verifica fatos, direitos, acessibilidade, equidade e adequação a menores;
+- confere cálculos, unidades, arredondamento e consistência dimensional;
+- mantém validação, revisão humana e pré-teste como gates separados;
+- valida exemplos contra um contrato portátil e, quando disponível, contra o validador real do ENtrack.
 
 ## Instalação
-
-Para disponibilizar a skill ao Codex, clone este repositório para o diretório global de skills:
 
 ```powershell
 git clone https://github.com/BHHZIN/authorial-question-writing.git `
   "$env:USERPROFILE\.codex\skills\authorial-question-writing"
 ```
 
-Se a pasta já existir, atualize-a com `git pull` ou copie o conteúdo para o diretório de skills do Codex.
-
-## Uso
-
-Invoque a skill diretamente:
+Uso direto:
 
 ```text
-Use $authorial-question-writing para criar uma questão inédita de inglês sobre leitura em contexto, com cinco alternativas, gabarito, justificativas e revisão de unicidade.
+Use $authorial-question-writing para criar uma questão autoral inédita de Matemática, com cinco alternativas, resolução independente e auditoria de unidades.
 ```
 
-O agente deve ler primeiro qualquer contrato, pacote JSON, matriz, schema ou validador fornecido pelo projeto. Quando estiver no ENtrack, a documentação local do fluxo autoral continua sendo a fonte de verdade para IDs, campos, dificuldade e release.
+## Validação
 
-## Estrutura
+Requer Node.js 20 ou superior.
 
-```text
-SKILL.md                         # instruções principais da skill
-agents/openai.yaml               # metadados para a interface do Codex
-references/quality-rubric.md     # rubrica de auditoria e unicidade
+```powershell
+npm test
+npm run validate:examples
 ```
 
-## Mídia visual
+Para executar todos os exemplos contra o validador real de uma cópia local do ENtrack:
 
-A skill pode usar a ferramenta integrada de geração de imagens para criar mapas,
-linhas do tempo, diagramas, infográficos ou ilustrações originais quando a
-imagem realmente ajuda o estudante a resolver o item. Cada ativo deve ser
-salvo localmente, ter texto alternativo equivalente, origem/licença registradas
-e SHA-256 conferido. Imagem decorativa é descartada; quando a mídia não é
-necessária, o campo media permanece vazio.
+```powershell
+npm run validate:entrack -- --entrack-root "C:\caminho\para\entrack-app"
+```
 
-Exemplos:
+## Exemplos
 
-- [questão de leitura em inglês](examples/english-reading-question.json)
-- [questão de História — Brasil Império](examples/brazil-empire-question.json)
+- `examples/english-reading-question.json`: língua estrangeira no modo ENEM;
+- `examples/brazil-empire-question.json`: História com suporte factual primário;
+- `examples/mathematics-units-rounding-question.json`: cálculo, conversão, unidades e arredondamento;
+- `examples/nature-dimensional-analysis-question.json`: Cinemática, unidades e precisão.
 
-## Limites
+Todos permanecem com `reviewed: false`. Eles demonstram contrato e auditoria, não aprovação pedagógica nem validade psicométrica.
 
-Esta skill cria rascunhos autorais e orienta sua auditoria. Ela não declara aprovação pedagógica, validade psicométrica, autorização de direitos autorais ou publicação em produção. Conteúdo que será usado por estudantes deve passar por revisão humana e pelos validadores do projeto.
+## Desenvolvimento
+
+- `SKILL.md`: fluxo essencial carregado pelo agente;
+- `references/`: integração ENtrack e rubrica editorial;
+- `scripts/`: validação portátil e integração real;
+- `tests/`: casos positivos e negativos, incluindo as quatro áreas e três dificuldades.
+
+Consulte `VERSION` e `CHANGELOG.md` para o estado da versão. O projeto é distribuído sob a licença MIT.
