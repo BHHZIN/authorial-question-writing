@@ -19,6 +19,9 @@ Aplicar esta rubrica depois de escrever e antes de devolver o item. Tratar cada 
 | Sensibilidade | O conteúdo é necessário, proporcional e não estereotipa pessoas ou grupos? | violência gratuita, sexualização, humilhação, patologização, estigma ou generalização de grupo |
 | Adequação etária | Linguagem e contexto são apropriados ao público e protegem menores? | conteúdo adulto desnecessário, instrução perigosa, exposição de dados ou situação emocional sem finalidade pedagógica |
 | Mídia factual | Escala, rótulo, unidade, legenda e representação foram reconstruídos de dados verificados? | imagem gerada tratada como documento, mapa impreciso, gráfico incompatível ou anacronismo usado como evidência |
+| Cobertura visual | Cada bloco completo de quatro itens contém exatamente uma questão cuja mídia é essencial, totalizando 25% do lote? | cota abaixo ou acima do contrato, mídia decorativa usada para completar número ou concentração que deixa blocos sem item visual |
+| Variedade funcional | O lote distribui funções entre mapas/cartogramas, charges/cartazes, fotografias de domínio público, gráficos/tabelas, linhas do tempo, plantas/esquemas, infográficos e reproduções documentais? | uma família domina mais da metade do lote, repetição serial ou mudança apenas cosmética de gênero |
+| Direção visual | A mídia é necessária ao raciocínio e cada ativo do lote tem função, briefing, composição e identidade próprias? | molde repetido, troca apenas de cor ou título, aparência genérica de banco, ilustração decorativa, ativo reutilizado ou variação superficial produzida em série |
 | Contrato | O objeto segue schema, IDs, ordem, enums e estado de revisão? | campo ausente, enum inválido, ID alterado, JSON inválido ou `reviewed` humano inventado |
 
 ## Testes privados
@@ -33,8 +36,12 @@ Responder sem olhar o gabarito:
 6. O gabarito tem pista de posição, extensão, detalhe ou tom?
 7. Um estudante de outro grupo social ou região encontra barreira irrelevante à habilidade?
 8. Um professor da disciplina confirmaria fato, solução e nível editorial?
+9. A questão perde evidência necessária se a mídia for removida, ou ela é apenas decorativa?
+10. Em comparação com as outras mídias do lote, este ativo repete enquadramento, composição, paleta, hierarquia ou linguagem visual sem justificativa pedagógica?
+11. O bloco de quatro itens contém exatamente uma mídia essencial e o lote atinge 25% sem imagens decorativas?
+12. O ativo amplia a variedade funcional do lote ou apenas repete uma família já dominante?
 
-Reescrever se a resposta 4 ou 5 revelar lacuna material, se a resposta 6 ou 7 indicar viés, ou se a resposta 8 ainda não puder ser obtida antes da publicação.
+Reescrever se a resposta 4 ou 5 revelar lacuna material, se a resposta 6 ou 7 indicar viés, se a resposta 8 ainda não puder ser obtida antes da publicação, se a resposta 9 revelar mídia decorativa ou se a resposta 10 revelar repetição serial.
 
 ## Auditoria privada mínima
 
